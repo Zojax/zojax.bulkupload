@@ -1,0 +1,6 @@
+<div i18n:domain="zojax.bulkupload">
+	<h1 i18n:translate="">Multiple file upload</h1>
+
+	<div id="bulk-upload"></div>
+	<button id="bulk-upload-button" i18n:translate="">Upload</button>
+</div>

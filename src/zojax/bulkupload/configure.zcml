@@ -1,0 +1,66 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zojax="http://namespaces.zope.org/zojax"
+    >
+
+  <zojax:pagelet
+      for=".interfaces.IBulkUploadAware"
+      name="bulk-upload.html"
+      permission="zojax.ModifyContent"
+      class=".upload.BulkUploadPage"
+      template="upload.pt"
+      />
+
+  <browser:page
+      for=".interfaces.IBulkUploadAware"
+      name="bulk-upload-process"
+      permission="zope.Public"
+      class=".upload.BulkUpload"
+      />
+
+  <adapter
+      name="action.bulkupload"
+      factory=".action.BulkUploadAction"
+      />
+
+  <adapter factory=".container.ContainerBulkUpload" />
+
+  <zojax:resourcedirectory
+      name="jquery-uploadify"
+      directory="resources"
+      />
+
+  <zojax:resourcepackage
+      name="jquery.uploadify.js"
+      library="jquery-uploadify"
+      require="jquery"
+      type="javascript"
+      >
+
+    <resource
+        path="jquery-uploadify/swfobject.js"
+        standalone="true"
+        />
+
+    <resource
+        path="jquery-uploadify/jquery.uploadify.v2.1.0.min.js"
+        standalone="true"
+        />
+
+  </zojax:resourcepackage>
+
+  <zojax:resourcepackage
+      name="jquery.uploadify.css"
+      library="jquery-uploadify"
+      type="stylesheet"
+      >
+
+    <resource
+        path="jquery-uploadify/uploadify.css"
+        standalone="true"
+        />
+
+  </zojax:resourcepackage>
+
+</configure>
