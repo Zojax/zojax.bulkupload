@@ -65,7 +65,15 @@ setup(name = 'zojax.bulkupload',
                           'zojax.resourcepackage',
                           'zojax.js.jquery'
                           ],
-      extras_require = dict(test=[]),
+      extras_require = dict(test=['zope.app.testing',
+                                  'zope.app.zcmlfiles',
+                                  'zope.securitypolicy',
+                                  'zope.testing',
+                                  'zope.testbrowser',
+                                  'zojax.autoinclude',
+                                  'zojax.content.space',
+                                  'zojax.controlpanel [test]',
+                                  ]),
       include_package_data = True,
       zip_safe = False
       )

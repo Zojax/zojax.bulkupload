@@ -1,0 +1,37 @@
+========
+Document
+========
+
+    >>> from zope import component, interface, event
+    >>> from zope.testbrowser.testing import Browser
+    >>> from zope.lifecycleevent import ObjectCreatedEvent
+    >>> from zojax.content.space.content import ContentSpace
+
+    >>> root = getRootFolder()
+
+    >>> actor = Browser()
+    >>> actor.handleErrors = False
+    >>> actor.addHeader("Authorization", "Basic mgr:mgrpw")
+
+
+Install product
+
+
+Add document
+
+    >>> actor.open("http://localhost/space/bulk-upload.html")
+    >>> print actor.contents
+    <!DOCTYPE ...
+    ...
+    <script type="text/javascript" src="http://localhost/.../jquery.js"></script>
+    <script type="text/javascript" src="http://localhost/@@/jquery-uploadify/swfobject.js"></script>
+    <script type="text/javascript" src="http://localhost/@@/jquery-uploadify/jquery.uploadify.v2.1.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://localhost/@@/jquery-uploadify/uploadify.css" />
+    ...
+    	<div id="z-portal-workspace"><div id="z-portal-viewspace"><div id="z-content"><div>
+    	<h1>Multiple file upload</h1>
+    	<div id="bulk-upload"></div>
+    	<button id="bulk-upload-button">Upload</button>
+    ...
+    </html>
+
